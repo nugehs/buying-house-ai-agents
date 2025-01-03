@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UK Property Search - Freehold Properties</title>
+    <style>
+        :root {
+            --primary-color: #2c3e50;
+            --secondary-color: #3498db;
+            --background-color: #f5f6fa;
+            --box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Arial', sans-serif;
+        }
+
+        body {
+            background-color: var(--background-color);
+            line-height: 1.6;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        header {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 30px;
+            box-shadow: var(--box-shadow);
+        }
+
+        h1 {
+            font-size: 2em;
+            margin-bottom: 10px;
+        }
+
+        .search-form {
+            background: white;
+            padding: 25px;
+            border-radius: 8px;
+            box-shadow: var(--box-shadow);
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            color: var(--primary-color);
+            font-weight: bold;
+        }
+
+        input[type="text"],
+        input[type="number"],
+        select {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 16px;
+        }
+
+        button {
+            background-color: var(--secondary-color);
+            color: white;
+            padding: 12px 24px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #2980b9;
+        }
+
+        .results {
+            margin-top: 30px;
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: var(--box-shadow);
+        }
+
+        .property-card {
+            border: 1px solid #ddd;
+            padding: 15px;
+            margin-bottom: 15px;
+            border-radius: 4px;
+        }
+
+        .property-card h3 {
+            color: var(--primary-color);
+            margin-bottom: 10px;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 10px;
+            }
+            
+            header {
+                padding: 15px;
+            }
+            
+            .search-form {
+                padding: 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>UK Property Search</h1>
+            <p>Find your ideal freehold property with low crime rates</p>
+        </header>
+
+        <main>
+            <section class="search-form">
+                <form id="propertySearchForm">
+                    <div class="form-group">
+                        <label for="location">Location (UK)</label>
+                        <input type="text" id="location" name="location" placeholder="Enter city or postcode" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="bedrooms">Number of Bedrooms</label>
+                        <select id="bedrooms" name="bedrooms" required>
+                            <option value="">Select number of bedrooms</option>
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5+">5+</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="maxPrice">Maximum Price (£)</label>
+                        <input type="number" id="maxPrice" name="maxPrice" max="500000" value="500000" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="propertyType">Property Type</label>
+                        <select id="propertyType" name="propertyType" required>
+                            <option value="freehold">Freehold</option>
+                        </select>
+                    </div>
+
+                    <button type="submit">Search Properties</button>
+                </form>
+            </section>
+
+            <section class="results" id="searchResults">
+                <h2>Search Results</h2>
+                <div id="propertyList">
+                    <!-- Results will be populated here -->
+                    <p>Use the search form above to find properties</p>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <script>
+        document.getElementById('propertySearchForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            // Here you would typically make an API call to your backend
+            // For now, we'll just show a message
+            document.getElementById('propertyList').innerHTML = 'Searching for properties...';
+        });
+    </script>
+</body>
+</html>
